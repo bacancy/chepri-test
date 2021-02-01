@@ -3,6 +3,7 @@ import * as fromUsers from "../store";
 import { Store, select } from '@ngrx/store';
 import { IAlbum } from '../_interfaces/album';
 import {Router, ActivatedRoute} from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-get-album',
@@ -18,7 +19,8 @@ export class GetAlbumComponent implements OnInit {
   constructor(
     private _store: Store<fromUsers.IState>,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private location: Location) { }
 
   ngOnInit() {
    this.userId = this.activatedRoute.snapshot.paramMap.get('userId')
@@ -30,8 +32,13 @@ export class GetAlbumComponent implements OnInit {
       this.albums = res.data;
     });
   }
+
   viewPhotos(albumId) {
     this.router.navigate(['photos',albumId]);
+  }
+
+  back() {
+    this.location.back();
   }
 
 }

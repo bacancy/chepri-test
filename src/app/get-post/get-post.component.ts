@@ -4,6 +4,7 @@ import { Store, select } from '@ngrx/store';
 import { IPost } from '../_interfaces/post';
 import { IComment } from '../_interfaces/comment';
 import {Router, ActivatedRoute} from '@angular/router';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-get-post',
   templateUrl: './get-post.component.html',
@@ -18,7 +19,8 @@ export class GetPostComponent implements OnInit {
   constructor(
     private _store: Store<fromUsers.IState>,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -43,17 +45,10 @@ export class GetPostComponent implements OnInit {
         }
       })
     });
-
-    
-    
   }
 
-  // public getFirstTenUsers(): void {
-  //   const firstTenUsers$ = this._store.pipe(select(fromUsers.firstTenUsers));
+  back() {
+    this.location.back();
+  }
 
-  //   firstTenUsers$.subscribe(res => {
-  //     this.isLoading = res.isLoading;
-  //     this.posts = res.data;
-  //   });
-  // }
 }

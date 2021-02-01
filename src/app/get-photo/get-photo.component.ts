@@ -3,7 +3,7 @@ import * as fromUsers from "../store";
 import { Store, select } from '@ngrx/store';
 import { IPhoto } from '../_interfaces/photo';
 import {Router, ActivatedRoute} from '@angular/router';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-get-photo',
   templateUrl: './get-photo.component.html',
@@ -18,7 +18,8 @@ export class GetPhotoComponent implements OnInit {
   constructor(
     private _store: Store<fromUsers.IState>,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private location: Location) { }
 
   ngOnInit() {
    this.albumId = this.activatedRoute.snapshot.paramMap.get('albumId')
@@ -29,6 +30,10 @@ export class GetPhotoComponent implements OnInit {
       this.isLoading = res.isLoading;
       this.photos = res.data;
     });
+  }
+
+  back() {
+    this.location.back();
   }
 
 }
