@@ -24,6 +24,10 @@ export class AppComponent implements OnInit {
     this.localStore.dispatch(new fromUsers.GetPhotoLoad());
   }
 
+  get isOnDashboard(): boolean{
+    return this.router.url === '/dashboard';
+  }
+
   /** Route user to dashboard */
   goToDashboard() {
     this.router.navigate(['dashboard']);

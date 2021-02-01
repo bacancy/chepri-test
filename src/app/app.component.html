@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <div class="row header">
   <div class="col-12">
-    <h3 class="container" (click)="goToDashboard()">Home</h3>
+    <h3 class="container" [ngClass]="{'initial': isOnDashboard}" (click)="goToDashboard()">Home</h3>
   </div>
 </div>
 
