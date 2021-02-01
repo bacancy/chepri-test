@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <h4 class="text-center">User Albums List</h4>
+  <div class="table table-striped">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Title</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of albumArray;let i=index">
+        <tr>
+          <td>{{item.id}}</td>
+          <td>{{item.title}}</td>
+          <td>
+            <button (click)="toggle(i,item)" [attr.aria-expanded]="!collapseArray[i].isCollapsed" aria-controls="collapseExample" class="btn btn-success btn-sm">
+              View Album Photos
+            </button>
+          </td>
+        </tr>
+        <div *ngIf="!collapseArray[i].isCollapsed">
+          <h4>Photos</h4>
+        </div>
+        <tr #collapse="ngbCollapse" [(ngbCollapse)]="collapseArray[i].isCollapsed" class="bg-info" >
+          <td  colspan="3">
+            <div *ngFor="let photo of photoArray">
+              <div class="card">
+                <div class="card-body">
+                  <span>{{photo.title}}</span><br>
+                  <img [src]="photo.url" alt="" height="10%" width="10%">
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

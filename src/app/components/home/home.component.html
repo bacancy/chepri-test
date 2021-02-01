@@ -1,0 +1,31 @@
+<div class="container-fluid my-3">
+  <h4 class='text-center'>User List</h4>
+  <div class="table table-striped">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Phone</th>
+          <th scope="col">User Id</th>
+          <th scope="col">Website</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of UserArray">
+        <tr (click)="userProfile(item.userId)">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.phone}}</td>
+          <td>{{item.username}}</td>
+          <td>{{item.website}}</td>
+          <td>
+            <button (click)="userProfile(item.id)" class="btn btn-success btn-sm">
+              View Profile
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

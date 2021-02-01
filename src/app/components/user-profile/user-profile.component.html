@@ -1,0 +1,62 @@
+<div class="container-fluid my-3">
+  <div class="row">
+    <div class="col-md-12">
+      <a class="text-center btn btn-info btn-sm" routerLink="">Back to Home</a>
+      <h4 class="text-center">User Profile</h4>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+
+          <h5 class="text-center">User details</h5>
+          <div id="userDetails">
+            <span class="font-weight-bold">Name:</span>
+            {{userDetails?.name}}<br>
+            <span class="font-weight-bold">User Id:</span>
+            {{userDetails?.username}}<br>
+            <span class="font-weight-bold">Website:</span>
+            {{userDetails?.website}}
+            <p></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="text-center">Address details</h5>
+          <div id="companyDetails">
+            <span class="font-weight-bold">Street:</span>
+            {{userDetails?.address.street}}<br>
+            <span class="font-weight-bold">City:</span>
+            {{userDetails?.address.city}}<br>
+            <span class="font-weight-bold">Suite:</span>
+            {{userDetails?.address.suite}}<br>
+            <span class="font-weight-bold">Zipcode:</span>
+            {{userDetails?.address.zipcode}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <button (click)="viewAlbums()" class="btn btn-info btn-lg w-100">View Albums</button>
+    </div>
+    <div class="col-6">
+      <button (click)="viewPosts()" class="btn btn-info w-100 btn-lg">View Posts</button>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="isAlbumVisible">
+  <app-user-albums [userId]="id"></app-user-albums>
+</div>
+<div *ngIf="isPostVisible">
+  <app-user-posts [userId]="id"></app-user-posts>
+</div>
