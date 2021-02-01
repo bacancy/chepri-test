@@ -1,0 +1,23 @@
+.photo-card{
+  margin-bottom: 40px;
+
+  .desc{
+    margin-bottom: 5px;
+    color: gray;
+    height: 50px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .photo{
+    height: 255px;
+  }
+}
+
+.title{
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ededed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

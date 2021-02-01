@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/chepri-test1'),
+      dir: require('path').join(__dirname, './coverage/ngrx-demo2'),
       subdir: '.',
       reporters: [
         { type: 'html' },

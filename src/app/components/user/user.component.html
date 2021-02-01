@@ -1,0 +1,39 @@
+<!-- Title -->
+<div class="title mt-5">
+  <h1>List of Users</h1>
+</div>
+
+<!-- Users List -->
+<div class="user-list">
+  <!-- Header -->
+  <div class="header">
+    <div class="id">#</div>
+    <div class="name">Name</div>
+    <div class="email">Email</div>
+    <div class="phone">Phone</div>
+    <div class="action text-center">Actions</div>
+  </div>
+
+  <!-- Body -->
+  <div class="body">
+    <ng-container *ngFor="let user of users;">
+      <div class="users">
+        <div class="id">{{user.id}}</div>
+        <div class="name">{{user.name}}</div>
+        <div class="email">{{user.email}}</div>
+        <div class="phone">{{user.phone}}</div>
+        <div class="action text-center">
+          <button class="btn btn-primary mr-2" (click)="viewPosts(user.id)"
+            title="View Posts">
+            <i class="fa fa-file-powerpoint-o mr-2"></i> Posts
+          </button>
+          <button class="btn btn-primary" (click)="viewAlbums(user.id)"
+            title="View Albums">
+            <i class="fa fa-folder-o mr-2"></i>
+            Albums
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

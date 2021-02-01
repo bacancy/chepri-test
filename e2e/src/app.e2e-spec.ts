@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('chepri-test1 app is running!');
+    expect(await page.getTitleText()).toEqual('ngrx-demo2 app is running!');
   });
 
   afterEach(async () => {

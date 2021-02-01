@@ -1,0 +1,45 @@
+.title{
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.album-list{
+  .header{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
+    background-color: #e7e7e7;
+  }
+
+  .albums{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border: 1px solid #e7e7e7;
+    border-bottom: 0px;
+    padding: 5px 10px;
+
+    &:last-child{
+      border-bottom: 1px solid #e7e7e7;
+    }
+  }
+
+  .id{
+    width: 35px;
+  }
+
+  .action{
+    width: 110px;
+  }
+
+  .title{
+    flex-grow: 1;
+    margin-bottom: 0px;
+  }
+}
+

@@ -1,0 +1,51 @@
+.title{
+  margin-bottom: 10px;
+}
+
+.user-list{
+  .header{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
+    background-color: #e7e7e7;
+  }
+
+  .users{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #e7e7e7;
+    border-bottom: 0px;
+    padding: 5px 10px;
+
+    &:last-child{
+      border-bottom: 1px solid #e7e7e7;
+    }
+  }
+
+  .id{
+    width: 35px;
+  }
+
+  .action{
+    width: 220px;
+  }
+
+  .name{
+    width: 250px;
+  }
+
+  .email{
+    width: 350px;
+  }
+
+  .phone{
+    width: 250px;
+  }
+}
+
