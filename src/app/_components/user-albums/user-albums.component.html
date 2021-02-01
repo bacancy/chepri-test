@@ -1,0 +1,20 @@
+<div class="d-flex align-items-center justify-content-between">
+    <h2>User's Albums</h2>
+    <a class="cursor-pointer" (click)="back()">Back</a>
+</div>
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let album of usersAlbums;">
+            <td>{{ album.title}}</td> 
+            <td>
+                <button (click)="viewPhotos(album.id)" class="btn btn-secondary">View Photos</button>
+            </td>           
+        </tr>
+    </tbody>
+</table>

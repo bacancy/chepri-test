@@ -3,14 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "chepri-test1": {
+    "chepri-test": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
         "@schematics/angular:application": {
-          "strict": true
+          "strict": false
         }
       },
       "root": "",
@@ -20,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/chepri-test1",
+            "outputPath": "dist/chepri-test",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -68,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "chepri-test1:build"
+            "browserTarget": "chepri-test:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "chepri-test1:build:production"
+              "browserTarget": "chepri-test:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "chepri-test1:build"
+            "browserTarget": "chepri-test:build"
           }
         },
         "test": {
@@ -116,16 +114,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "chepri-test1:serve"
+            "devServerTarget": "chepri-test:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "chepri-test1:serve:production"
+              "devServerTarget": "chepri-test:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "chepri-test1"
+  "defaultProject": "chepri-test"
 }
