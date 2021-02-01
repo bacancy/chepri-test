@@ -1,0 +1,11 @@
+<div *ngIf="isLoading" class="spinner">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<h3 class="d-flex justify-content-center">Photos</h3>
+<div class="row p-4">
+    <div class="col-2 mb-4" *ngFor="let photo of photos">
+        <img src="{{photo.url}}" width="100%" />
+    </div>
+</div>

@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+img {
+    border-radius: 10px;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
