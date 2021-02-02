@@ -23,20 +23,22 @@ export class GetAlbumComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-   this.userId = this.activatedRoute.snapshot.paramMap.get('userId')
-   //this._store.dispatch(new fromUsers.GetUserLoad());
+    //get userId from params
+    this.userId = this.activatedRoute.snapshot.paramMap.get('userId')
+  
     const albums$ = this._store.pipe(select(fromUsers.getAlbumById, { myUserId: this.userId }));
-
     albums$.subscribe(res => {
       this.isLoading = res.isLoading;
       this.albums = res.data;
     });
   }
 
+  // redirect to photos route
   viewPhotos(albumId) {
     this.router.navigate(['photos',albumId]);
   }
 
+  // redirect to back
   back() {
     this.location.back();
   }

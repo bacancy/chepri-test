@@ -24,11 +24,11 @@ export class GetPostComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    //get userId from params
     this.userId = this.activatedRoute.snapshot.paramMap.get('userId')
+
     const allData$ = this._store.pipe(select(fromUsers.allData));
     const posts$ = this._store.pipe(select(fromUsers.getPostsById, { myUserId: this.userId }));
-   
     
     allData$.subscribe(res => {
       this.comments = res.commentData;
@@ -47,6 +47,7 @@ export class GetPostComponent implements OnInit {
     });
   }
 
+  // redirect to back
   back() {
     this.location.back();
   }

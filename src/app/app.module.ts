@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GetUserComponent } from './get-user/get-user.component';
-
 import { HttpClientModule } from '@angular/common/http';
 import { reducer} from './store/reducer';
 import { StoreModule } from '@ngrx/store';

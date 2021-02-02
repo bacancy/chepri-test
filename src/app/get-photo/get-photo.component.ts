@@ -22,8 +22,8 @@ export class GetPhotoComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-   this.albumId = this.activatedRoute.snapshot.paramMap.get('albumId')
-   //this._store.dispatch(new fromUsers.GetUserLoad());
+    //get albumId from params
+    this.albumId = this.activatedRoute.snapshot.paramMap.get('albumId')
     const photos$ = this._store.pipe(select(fromUsers.getPhotoById, { myAlbumId: this.albumId }));
 
     photos$.subscribe(res => {
@@ -31,7 +31,8 @@ export class GetPhotoComponent implements OnInit {
       this.photos = res.data;
     });
   }
-
+  
+  // redirect to back
   back() {
     this.location.back();
   }

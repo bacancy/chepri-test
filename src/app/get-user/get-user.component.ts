@@ -18,19 +18,19 @@ export class GetUserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   // this._store.dispatch(new fromUsers.GetUserLoad());
     const allData$ = this._store.pipe(select(fromUsers.allData));
 
     allData$.subscribe(res => {
-      //this.isLoading = res.isLoading;
       this.users = res.userData;
-      console.log("all data in uesrs===>", res);
     });
   }
 
+  // redirect to posts route
   viewPosts(userId) {
     this.router.navigate(['posts',userId]);
   }
+
+  // redirect to albums route
   viewAlbums(userId) {
     this.router.navigate(['albums',userId]);
   }
