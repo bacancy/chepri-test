@@ -1,0 +1,19 @@
+<div class="photo">
+    <div *ngIf="isLoading" class="spinner">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <ng-container *ngIf="!isLoading">
+        <h3>Photos</h3>
+        <div class="breadcrumb">
+            <a class="back" (click)="navigatoBack()">Albums / &nbsp;</a>
+            Photos
+        </div>
+        <div class="row">
+            <div class="col-md-2" *ngFor="let photo of photos;">
+                <img src="{{ photo.url }}" width="100%">
+            </div>
+        </div>
+    </ng-container>
+</div>

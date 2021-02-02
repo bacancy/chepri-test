@@ -1,0 +1,33 @@
+<div class="user">
+    <div *ngIf="isLoading" class="spinner">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <ng-container *ngIf="!isLoading">
+        <h3>Home</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users;">
+                    <th scope="row">{{ user.id }}</th>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email}}</td>
+                    <td>{{ user.phone}}</td>
+                    <td>
+                        <button class="btn btn-outline-secondary" (click)="viewPosts(user.id)">View Posts</button>
+                        <button class="btn btn-outline-secondary ml-3" (click)="viewAlbums(user.id)">View Albums</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</div>

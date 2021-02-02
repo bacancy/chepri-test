@@ -1,11 +1,9 @@
-
-import { IAlbum } from '../_interfaces/album';
-import { IComment } from '../_interfaces/comment';
-import { IPost } from '../_interfaces/post';
-import { IUser } from '../_interfaces/user';
-import { IPhoto } from '../_interfaces/photo';
+import { IPost } from '../models/post.interface';
+import { IUser } from '../models/user.interface';
+import { IAlbum } from '../models/album.interface';
+import { IPhoto } from '../models/photo.interface';
+import { IComment } from '../models/comment.interface';
 import { UserActions, UserActionTypes } from './actions';
-
 
 export interface IState {
     postData: IPost[];
@@ -30,8 +28,6 @@ const initialState: IState = {
 export function reducer(state = initialState, action: UserActions): any {
 
     switch (action.type) {
-
-        /* start : Photos actions*/
         case UserActionTypes.GetPostLoad: {
             return {
                 ...state,
@@ -54,9 +50,7 @@ export function reducer(state = initialState, action: UserActions): any {
                 message: 'Something went wrong!'
             }
         }
-        /* end : Photos actions*/
 
-        /* start : comment actions*/
         case UserActionTypes.GetCommentLoad: {
             return {
                 ...state,
@@ -72,6 +66,7 @@ export function reducer(state = initialState, action: UserActions): any {
                 message: 'Data fetch Successfully!'
             }
         }
+
         case UserActionTypes.GetCommentFail: {
             return {
                 commentData: [],
@@ -79,9 +74,7 @@ export function reducer(state = initialState, action: UserActions): any {
                 message: 'Something went wrong!'
             }
         }
-        /* end : comment actions*/
 
-        /* start : user actions*/
         case UserActionTypes.GetUserLoad: {
             return {
                 ...state,
@@ -104,9 +97,7 @@ export function reducer(state = initialState, action: UserActions): any {
                 message: 'Something went wrong!'
             }
         }
-        /* end : user actions*/
 
-        /* start : album actions*/
         case UserActionTypes.GetAlbumLoad: {
             return {
                 ...state,
@@ -122,6 +113,7 @@ export function reducer(state = initialState, action: UserActions): any {
                 message: 'Data fetch Successfully!'
             }
         }
+
         case UserActionTypes.GetAlbumFail: {
             return {
                 albumData: [],
@@ -129,9 +121,7 @@ export function reducer(state = initialState, action: UserActions): any {
                 message: 'Something went wrong!'
             }
         }
-        /* end : album actions*/
 
-        /* start : photo actions*/
         case UserActionTypes.GetPhotoLoad: {
             return {
                 ...state,
@@ -147,6 +137,7 @@ export function reducer(state = initialState, action: UserActions): any {
                 message: 'Data fetch Successfully!'
             }
         }
+
         case UserActionTypes.GetPhotoFail: {
             return {
                 photoData: [],
@@ -154,7 +145,6 @@ export function reducer(state = initialState, action: UserActions): any {
                 message: 'Something went wrong!'
             }
         }
-        /* end : photo actions*/
 
         default:
             return state;

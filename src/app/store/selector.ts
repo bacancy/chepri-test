@@ -1,10 +1,8 @@
 
-import { createFeatureSelector, createSelector, props } from "@ngrx/store";
 import { IState} from ".";
-
+import { createFeatureSelector, createSelector, props } from "@ngrx/store";
 
 const allDataState = createFeatureSelector<IState>('allData');
-
 
 export const allData = createSelector(allDataState, (state: IState) => {
     return state;

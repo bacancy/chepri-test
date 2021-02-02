@@ -1,0 +1,28 @@
+<div class="albums">
+    <div *ngIf="isLoading" class="spinner">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <ng-container *ngIf="!isLoading">
+        <h3>Albums</h3>
+        <div class="breadcrumb">
+            <a class="back" (click)="navigatoBack()">Home / &nbsp;</a>
+            Albums
+        </div>
+        <div class="row">
+            <div class="col-md-3" *ngFor="let album of albums;">
+                <div class="content d-flex flex-column h-100 p-3">
+                    <div class="details flex-grow-1">
+                        <div class="title mb-2"><b>{{ album.title }}</b></div>
+                        <div>Album Id: <b>{{ album.id }}</b></div>
+                        <div>User Id: <b>{{ album.userId }}</b></div>
+                    </div>
+                    <div class="mt-4 view-photos text-center">
+                        <button (click)="viewPhotos(album.id)">View Photos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

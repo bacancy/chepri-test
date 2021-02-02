@@ -1,31 +1,32 @@
 
+import * as fromUsers from '.'
+import { Action } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Observable, of } from 'rxjs';
-import { PostService } from '../_services/post.service';
-import { UserService } from '../_services/user.service';
-import { AlbumService } from '../_services/album.service';
-import { PhotoService } from '../_services/photo.service';
-import { Action } from '@ngrx/store';
-import * as fromUsers from '.'
 import { catchError, map, mergeMap } from 'rxjs/operators';
-import { IPost } from '../_interfaces/post';
-import { IComment } from '../_interfaces/comment';
-import { IUser } from '../_interfaces/user';
-import { IAlbum } from '../_interfaces/album';
-import { IPhoto } from '../_interfaces/photo';
+
+import { IPost } from '../models/post.interface';
+import { IUser } from '../models/user.interface';
+import { IAlbum } from '../models/album.interface';
+import { IPhoto } from '../models/photo.interface';
+import { IComment } from '../models/comment.interface';
+
+import { PostService } from '../services/post.service';
+import { UserService } from '../services/user.service';
+import { AlbumService } from '../services/album.service';
+import { PhotoService } from '../services/photo.service';
 
 @Injectable()
 export class UserEffects {
 
-    constructor(private actions$: Actions,
+    constructor(
+        private actions$: Actions,
         private postService: PostService,
         private userService: UserService,
         private albumService: AlbumService,
-        private photoService: PhotoService,
-        
-        ) {
-    }
+        private photoService: PhotoService) 
+    { }
 
     @Effect()
     getPosts$: Observable<Action> = this.actions$.pipe(

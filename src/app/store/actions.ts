@@ -1,11 +1,11 @@
 
 import { Action } from '@ngrx/store';
-import { IPost } from '../_interfaces/post';
+import { IPost } from '../models/post.interface';
+import { IUser } from '../models/user.interface';
+import { IPhoto } from '../models/photo.interface';
+import { IAlbum } from '../models/album.interface';
+import { IComment } from '../models/comment.interface';
 import { HttpErrorResponse } from '@angular/common/http';
-import { IComment } from '../_interfaces/comment';
-import { IUser } from '../_interfaces/user';
-import { IAlbum } from '../_interfaces/album';
-import { IPhoto } from '../_interfaces/photo';
 
 export enum UserActionTypes {
     GetPostLoad = '[Post] Get Post',
@@ -29,7 +29,7 @@ export enum UserActionTypes {
     GetPhotoFail = '[Photo] Get Photo Fail'
 }
 
-/* start : Post actions*/
+
 export class GetPostLoad implements Action {
     public readonly type = UserActionTypes.GetPostLoad;
 }
@@ -45,9 +45,7 @@ export class GetPostFail implements Action {
 
     constructor(public error: HttpErrorResponse) { }
 }
-/* end : Post actions*/
 
-/* start : comment actions*/
 export class GetCommentLoad implements Action {
     public readonly type = UserActionTypes.GetCommentLoad;
 }
@@ -63,9 +61,8 @@ export class GetCommentFail implements Action {
 
     constructor(public error: HttpErrorResponse) { }
 }
-/* end : comment actions*/
 
-/* start : User actions*/
+
 export class GetUserLoad implements Action {
     public readonly type = UserActionTypes.GetUserLoad;
 }
@@ -81,9 +78,7 @@ export class GetUserFail implements Action {
 
     constructor(public error: HttpErrorResponse) { }
 }
-/* end : User actions*/
 
-/* start : Album actions*/
 export class GetAlbumLoad implements Action {
     public readonly type = UserActionTypes.GetAlbumLoad;
 }
@@ -99,9 +94,7 @@ export class GetAlbumFail implements Action {
 
     constructor(public error: HttpErrorResponse) { }
 }
-/* end : Album actions*/
 
-/* start : Photos actions*/
 export class GetPhotoLoad implements Action {
     public readonly type = UserActionTypes.GetPhotoLoad;
 }
@@ -117,7 +110,7 @@ export class GetPhotoFail implements Action {
 
     constructor(public error: HttpErrorResponse) { }
 }
-/* end : Photos actions*/
+
 
 
 export type UserActions = GetPostLoad | GetPostSuccess | GetPostFail | GetCommentLoad | GetCommentSuccess | GetCommentFail | GetUserLoad | GetUserSuccess | GetUserFail| GetAlbumLoad | GetAlbumSuccess | GetAlbumFail | GetPhotoLoad | GetPhotoSuccess | GetPhotoFail;

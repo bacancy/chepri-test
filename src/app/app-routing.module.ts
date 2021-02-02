@@ -1,16 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GetAlbumComponent } from './get-album/get-album.component';
-import { GetPhotoComponent } from './get-photo/get-photo.component';
-import { GetPostComponent } from './get-post/get-post.component';
-import { GetUserComponent } from './get-user/get-user.component';
+import { PostComponent } from './components/post/post.component';
+import { UserComponent } from './components/user/user.component';
+import { AlbumComponent } from './components/album/album.component';
+import { PhotoComponent } from './components/photo/photo.component';
 
 const routes: Routes = [
-    { path: '', component: GetUserComponent },
-    { path: 'users', component: GetUserComponent },
-    { path: 'posts/:userId', component: GetPostComponent },
-    { path: 'albums/:userId', component: GetAlbumComponent },
-    { path: 'photos/:albumId', component: GetPhotoComponent },
+  { 
+    path: '', 
+    redirectTo: 'users',
+    pathMatch: 'full'
+  },
+  { 
+    path: 'users', 
+    component: UserComponent
+  },
+  { 
+    path: 'posts/:userId',
+    component: PostComponent 
+  },
+  { 
+    path: 'albums/:userId', 
+    component: AlbumComponent 
+  },
+  { 
+    path: 'photos/:albumId',
+    component: PhotoComponent 
+  },
 ];
 
 @NgModule({

@@ -1,10 +1,20 @@
-img {
-    border-radius: 10px;
-}
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
 
 .spinner {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.back {
+    color: blue;
+    text-decoration: none !important;
+    cursor: pointer;
+    &:hover {
+        color: blue !important;
+    }
 }
